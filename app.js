@@ -1,15 +1,29 @@
-// <h1 id="main-title" title="This is a title">My First React Element</h1>
-const title = <h1>My First React Element</h1>
-const dscr = <p>I just learned how to create a React node and render it into the Dom</p>
+const Header = () => {
+    return (
+        <header>
+            <h1>Scoreboard</h1>
+            <span className="stats">Players: 1</span>
+        </header>
+    );
+}
 
-const header = (
-    <header>
-        <h1>My First React Element</h1>
-        <p>I just learned how to create a React node and render it into the Dom</p>
-    </header>
-);
+const Player = () => {
+    return (
+        <div className="player">
+            <span className="player-name">
+                Maceo
+            </span>
+
+            <div className="counter">
+                <button className="counter-action decrement"> - </button>
+                <button className="counter-action increment"> + </button>
+                <span className="counter-score">35</span>
+            </div>
+        </div>
+    );
+}
 
 ReactDOM.render(
-    header,
+    <Player />,
     document.getElementById('root')
 );
