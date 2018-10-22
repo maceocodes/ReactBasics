@@ -1,20 +1,25 @@
 const players = [
     {
         name: "Guil",
-        score: 50
+        score: 50,
+        id:1
       },
       {
         name: "Treasure",
-        score: 85
+        score: 85,
+        id:2
       },
       {
         name: "Ashley",
-        score: 95
+        score: 95,
+        id:3
       },
       {
         name: "James",
-        score: 80
+        score: 80,
+        id:4
       }
+      //an array of objects with name and score properties//
 ];
 
 
@@ -53,15 +58,18 @@ const Counter  = (props) => {
 const App = (props) => {
     return (
         <div className="scoreboard">
-            <Header title="scoreboard" totalPlayers={1}/>
+            <Header title="scoreboard" totalPlayers={props.initialPlayers.length}/>
 
             {/*Players list*/}
-            {props.initalPlayers.map}
-            <Player playerName="Maceo" playerScore={100} />
-            <Player playerName="Player01" playerScore={70} />
-            <Player playerName="Player02" playerScore={67} />
-            <Player playerName="Player03" playerScore={53} />
-            
+            {props.initialPlayers.map( player => 
+                //this is an implicit return, ommitting the return keyword and curly braces//
+                <Player 
+                    playerName={player.name} 
+                    playerScore={player.score}
+                    key={player.id.toString()}
+                />
+
+            )}          
         </div>
     );
 }
